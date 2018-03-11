@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DownloadUtil</string>
+    <string name="downloadStarted">downloadStarted</string>
+    <string name="downloadCompleted">downloadCompleted</string>
+    <string name="downloadFailed">downloadFailed</string>
+    <string name="downloadAgain">downloadAgain</string>
 </resources>

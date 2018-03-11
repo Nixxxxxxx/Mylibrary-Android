@@ -9,6 +9,6 @@ import android.util.Log;
 public class LogDebug {
     private  static final  String TAG = "Testing custom library";
     public  static  void  d(String message){
-        Log.d(TAG, message);
+        Log.d(TAG, message);//idividual gradle import
     }
 }
