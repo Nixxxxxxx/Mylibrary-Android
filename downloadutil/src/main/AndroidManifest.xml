@@ -1,2 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kopykat.downloadutil" />
+    package="com.kopykat.downloadutil" >
+
+
+    <!--  Permission required for Downloading Files  -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--  Permission required for Checking Internet Connection  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--  Permission required for Reading Writing SD Card/Memory  -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>
+
