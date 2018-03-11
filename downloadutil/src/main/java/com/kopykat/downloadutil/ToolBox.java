@@ -24,7 +24,7 @@ public class ToolBox {
     }
 
     //Open downloaded folder
-    private void openDownloadedFolder() {
+    public void openDownloadedFolder() {
         //First check if SD Card is present or not
         if (new CheckForSDCard().isSDCardPresent()) {
 
@@ -51,7 +51,7 @@ public class ToolBox {
     }
 
     //Check if internet is present or not
-    private boolean isConnectingToInternet() {
+    public boolean isConnectingToInternet() {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected())
