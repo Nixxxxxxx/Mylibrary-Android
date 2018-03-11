@@ -24,12 +24,12 @@ public class ToolBox {
     }
 
     //Open downloaded folder
-    public void openDownloadedFolder() {
+    public void openDownloadedFolder(String dir) {
         //First check if SD Card is present or not
         if (new CheckForSDCard().isSDCardPresent()) {
 
             //Get Download Directory File
-            File apkStorage = new File(Environment.getExternalStorageDirectory() + "/" + Utils.downloadDirectory);
+            File apkStorage = new File(Environment.getExternalStorageDirectory() + "/" + dir);
 
             //If file is not present then display Toast
             if (!apkStorage.exists())
@@ -40,7 +40,7 @@ public class ToolBox {
                 /** Note: Directory will open only if there is a app to open directory like File Manager, etc.  **/
 
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath() + "/" + Utils.downloadDirectory);
+                Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath() + "/" + dir);
                 intent.setDataAndType(uri, "file/*");
                 context.startActivity(Intent.createChooser(intent, "Open Download Folder"));
             }

@@ -19,20 +19,23 @@ public class DownloadTask {
     private static final String TAG = "Download Task";
     private Context context;
     private Button buttonText;
-    private String downloadUrl = "", downloadFileName = "";
+    private String downloadUrl = "", downloadFileName = "",  downloadDIR = "";
 
-    public DownloadTask(Context context, Button buttonText, String downloadUrl) {
+    public DownloadTask(Context context, Button buttonText,String mainUrl, String downloadDIR,String downloadUrl) {
         this.context = context;
         this.buttonText = buttonText;
         this.downloadUrl = downloadUrl;
+        this.downloadDIR = downloadDIR;
 
-        downloadFileName = downloadUrl.replace(Utils.mainUrl, "");
+        downloadFileName = downloadUrl.replace(mainUrl, "");
         //Create file name by picking download file name from URL
         Log.e(TAG, downloadFileName);
 
         //Start Downloading Task
         new DownloadingTask().execute();
     }
+
+
 
     private class DownloadingTask extends AsyncTask<Void, Void, Void> {
 
@@ -104,9 +107,7 @@ public class DownloadTask {
                 //Get File if SD card is present
                 if (new CheckForSDCard().isSDCardPresent()) {
 
-                    apkStorage = new File(
-                            Environment.getExternalStorageDirectory() + "/"
-                                    + Utils.downloadDirectory);
+                    apkStorage = new File(Environment.getExternalStorageDirectory() + "/" + downloadDIR);
                 } else
                     Toast.makeText(context, "Oops!! There is no SD Card.", Toast.LENGTH_SHORT).show();
 
